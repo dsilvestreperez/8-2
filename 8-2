@@ -1,0 +1,27 @@
+using System;
+using System.Text.Json;
+
+
+public class Book// about the book 
+{
+	public string Title { get; set; }
+	public string Author { get; set; }
+	public int Year { get; set; }
+}
+	class Program
+	{
+		static void Main()
+		{
+			Book  book= new Book {Title = "Harry Potter", Author = "J.K Rowing",Year = 1997};// the book info
+			//Serialize 
+			string jsonString = JsonSerializer.Serialize(book);
+			Console.WriteLine("Serialized JSON");
+			Console.WriteLine(jsonString);
+			
+			//Deserialize
+			Book deserializedBook = JsonSerializer.Deserialize<Book>(jsonString);
+			Console.WriteLine($"Deserilized Book: {deserializedBook.Title}, {deserializedBook.Author}, {deserializedBook.Year}");
+		}
+	}
+
+							  
